@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ForestScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/DesertScene.unity
+    guid: 3bc513c0abbae4d588da2ba33a6154cb
+  - enabled: 1
+    path: Assets/Scenes/HighwayScene.unity
+    guid: 4490b5bdceff742be89cdba5fcd4bc48
+  - enabled: 1
+    path: Assets/Scenes/MarsScene.unity
+    guid: 89492946da8cb4b6f81011714eb77ce4
   m_configObjects: {}
