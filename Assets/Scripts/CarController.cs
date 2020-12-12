@@ -17,6 +17,9 @@ public class CarController : MonoBehaviour
     public UnityEngine.UI.Image fuelImage;
 
     public GasScript gas;
+    public BrakeScript brake;
+
+    public bool finish = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +30,14 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement = gas.holding ? 1 : 0;
+        movement = (brake.holding ? -1 : 0) + (gas.holding ? 1 : 0);
+
         fuelImage.fillAmount = fuel;
+
+        if(finish){
+            front_tire.angularVelocity = 0f;
+            back_tire.angularVelocity = 0f;
+        }
     }
 
     void FixedUpdate()

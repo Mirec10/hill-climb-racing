@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlagScript : MonoBehaviour
+public class FinishLevel : MonoBehaviour
 {
-    //public GameManager gameManager;
+    public CarController car;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class FlagScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-            //gameManager.WinGame();
+        car.finish = true;
     }
 
 }
