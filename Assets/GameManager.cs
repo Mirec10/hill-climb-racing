@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 	public Camera camera;
-	public Canvas GameCanvas, PauseCanvas;
+	public Canvas GameCanvas, PauseCanvas, WinCanvas, LoseCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     	
         GameCanvas.enabled = true;
         PauseCanvas.enabled = false;
+        WinCanvas.enabled = false;
+        LoseCanvas.enabled = false;
     }
 
     // Update is called once per frame
@@ -42,10 +44,12 @@ public class GameManager : MonoBehaviour
     }
 
     public void win(){
-
+        GameCanvas.enabled = false;
+        WinCanvas.enabled = true;
     }
 
-    public void loose(){
-
+    public void lose(){
+        GameCanvas.enabled = false;
+        LoseCanvas.enabled = true;
     }
 }

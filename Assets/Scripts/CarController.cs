@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+    public GameManager manager;
+
     public Rigidbody2D car_body;
     public Rigidbody2D back_tire;
     public Rigidbody2D front_tire;
@@ -37,18 +39,22 @@ public class CarController : MonoBehaviour
         if(finish){
             front_tire.angularVelocity = 0f;
             back_tire.angularVelocity = 0f;
+            manager.win();
         }
     }
 
     void FixedUpdate()
     {
-        if(fuel > 0)
-        {
+        if(finish) manager.win();
+
+        if(fuel > 0){
             front_tire.AddTorque(-movement * speed * Time.fixedDeltaTime);
             back_tire.AddTorque(-movement * speed * Time.fixedDeltaTime);
             car_body.AddTorque(-movement * carTorque * Time.fixedDeltaTime);
 
             fuel -= fuelConsumption * Mathf.Abs(movement) * Time.fixedDeltaTime;
+        }else{
+            manager.lose();
         }
     }
 
